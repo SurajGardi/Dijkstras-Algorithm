@@ -12,50 +12,35 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 20px;
+    min-height: 100vh;
+    padding: 2vw;
 }
 
-/* header {
-    position: absolute;
-    top: 0;
-    background-color: #3498db;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    font-size: 2.4rem;
-} */
-
+/* Main Container */
 .main-container {
-    /* position: relative;
-    top: 45px; */
     display: flex;
+    flex-direction: row;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 85%;
+    width: 90%;
     max-width: 1200px;
-    /* height: 620px; */
     overflow: hidden;
 }
 
 /* Sidebar Section */
 .sidebar {
     width: 30%;
+    min-width: 250px;
     background-color: #ecf0f1;
-    padding: 20px;
+    padding: 2vw;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-title {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: #3498db;
-    margin-bottom: 20px;
+    margin-bottom: 2vw;
     text-align: center;
 }
 
@@ -67,16 +52,16 @@ header h1 {
 
 .contributor {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 2vw;
     animation: fadeIn 1s ease;
 }
 
 .contributor-img {
-    width: 100px;
-    height: 100px;
+    width: clamp(80px, 15vw, 100px);
+    height: clamp(80px, 15vw, 100px);
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 1vw;
     transition: transform 0.3s ease;
 }
 
@@ -85,51 +70,51 @@ header h1 {
 }
 
 .contributor-name {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     font-weight: bold;
 }
 
 .contributor-role {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     color: #7f8c8d;
 }
 
 /* Content Section */
 .content {
     width: 70%;
-    padding: 30px;
+    padding: 3vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .project-name {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: bold;
     color: #3498db;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 2vw;
     animation: slideIn 1s ease;
 }
 
 /* Theory Section */
 .theory-section {
     background-color: #ecf0f1;
-    padding: 20px;
+    padding: 2vw;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 2vw;
     animation: fadeIn 1.5s ease;
 }
 
 .theory-section h2 {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
     color: #2980b9;
-    margin-bottom: 10px;
+    margin-bottom: 1vw;
 }
 
 .theory-section p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: #2c3e50;
     line-height: 1.6;
 }
@@ -143,11 +128,12 @@ header h1 {
     text-decoration: none;
     color: white;
     background-color: #3498db;
-    padding: 12px 20px;
+    padding: 1vw 2vw;
     border-radius: 8px;
-    font-size: 1.2rem;
-    margin: 10px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin: 1vw;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
 }
 
 .btn:hover {
@@ -177,5 +163,65 @@ header h1 {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: unset;
+        padding: 4vw;
+    }
+
+    .content {
+        width: 100%;
+        padding: 4vw;
+    }
+
+    .project-name {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+
+    .btn {
+        padding: 2vw 4vw;
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-title {
+        font-size: clamp(1.3rem, 5vw, 1.5rem);
+    }
+
+    .contributor-img {
+        width: clamp(60px, 20vw, 80px);
+        height: clamp(60px, 20vw, 80px);
+    }
+
+    .contributor-name {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+
+    .contributor-role {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    }
+
+    .theory-section h2 {
+        font-size: clamp(1.3rem, 4.5vw, 1.5rem);
+    }
+
+    .theory-section p {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+
+    .btn {
+        padding: 3vw 5vw;
+        font-size: clamp(0.8rem, 3.5vw, 1rem);
     }
 }

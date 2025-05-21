@@ -71,10 +71,6 @@ function addEdge(event) {
 
 // Update Dropdowns
 function updateNodeSelections() {
-    // fromNodeSelect.innerHTML = '';
-    // toNodeSelect.innerHTML = '';
-    // startNodeSelect.innerHTML = '';
-
     nodes.forEach(node => {
         const option = document.createElement('option');
         option.value = node.id;
@@ -110,10 +106,6 @@ function drawGraph(currentNodeId = null, shortestPathEdges = []) {
             ctx.strokeStyle = '#4CAF50'; // Green for shortest path
             ctx.lineWidth = 4;
         } 
-        // else if (highlightedEdges.includes(edge)) {
-        //     ctx.strokeStyle = 'yellow'; // Orange for highlighted edges
-        //     ctx.lineWidth = 4;
-        // } 
         else {
             ctx.strokeStyle = '#333'; // Default edge color
             ctx.lineWidth = 2;
@@ -262,4 +254,3 @@ function resetGraph() {
     resultsTableBody.innerHTML = '';
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
-
